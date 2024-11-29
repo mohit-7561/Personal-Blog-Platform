@@ -3,8 +3,8 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
-const postRoutes = require('./routes/postRoutes');
-const authRoutes = require('./routes/authRoutes');
+const postRoutes = require('./Routes/postRoutes');
+const authRoutes = require('./Routes/authRoutes');
 
 dotenv.config();
 const app = express();
