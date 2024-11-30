@@ -12,22 +12,13 @@ const PORT = process.env.PORT || 5000;
 // Connect to MongoDB
 connectDB();
 
-// CORS configuration allowing both local and production origins
-const allowedOrigins = [
-  'http://localhost:5173',  // Allow localhost (for local development)
-  'https://delightful-malabi-007b4b.netlify.app'  // Allow production domain
-];
+
 
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or postman)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'), false);
-    }
-  },
-}));
+  origin: ["https://delightful-malabi-007b4b.netlify.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}))
 
 app.use(express.json());
 
