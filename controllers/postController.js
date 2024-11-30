@@ -26,13 +26,21 @@ const getPostById = async (req, res) => {
 // Create a new post
 const createPost = async (req, res) => {
   const { title, content } = req.body;
+  const userId = req.user.userId;  // Assuming `req.user` contains the authenticated user from the `authenticate` middleware
+  
   try {
-    const newPost = new Post({ title, content });
+    const newPost = new Post({
+      title,
+      content,
+      user: userId  // Assign the userId to the post
+    });
+
     await newPost.save();
     res.status(201).json(newPost);
   } catch (error) {
     res.status(500).json({ message: 'Error creating post', error });
   }
 };
+
 
 module.exports = { getAllPosts, getPostById, createPost };
