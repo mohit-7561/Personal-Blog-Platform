@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 // Register user
 const register = async (req, res) => {
-  const { name, email, password } = req.body;  // Changed to reflect name and email
+  const { name, email, password } = req.body;  
 
   // Check if user already exists
   const existingUser = await User.findOne({ email });
@@ -13,10 +13,10 @@ const register = async (req, res) => {
   }
 
   try {
-    // Create new user with name, email, and hashed password
+   
     const user = new User({ name, email, password });
 
-    // Save user to database
+   
     await user.save();
 
     res.status(201).json({ message: 'User registered successfully' });
@@ -27,7 +27,7 @@ const register = async (req, res) => {
 
 // Login user
 const login = async (req, res) => {
-  const { email, password } = req.body;  // Changed to reflect email
+  const { email, password } = req.body; 
 
   try {
     // Find user by email
