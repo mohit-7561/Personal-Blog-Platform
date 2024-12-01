@@ -26,13 +26,13 @@ const getPostById = async (req, res) => {
 // Create a new post
 const createPost = async (req, res) => {
   const { title, content } = req.body;
-  const userId = req.user.userId;  // Assuming `req.user` contains the authenticated user from the `authenticate` middleware
+  const userId = req.user.userId;  
   
   try {
     const newPost = new Post({
       title,
       content,
-      user: userId  // Assign the userId to the post
+      user: userId  
     });
 
     await newPost.save();
