@@ -10,7 +10,7 @@ router.get('/myPost', getAllPosts);
 // Get a single post by ID
 router.get('/:id', getPostById);
 
-// Create a new post (protected)
+// Create a new post
 router.post('/create', authenticate, createPost);
 
 module.exports = router;
