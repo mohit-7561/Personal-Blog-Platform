@@ -14,11 +14,7 @@ connectDB();
 
 
 
-app.use(cors({
-  origin: ["https://delightful-malabi-007b4b.netlify.app"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}))
+app.use(cors())
 
 app.use(express.json());
 
